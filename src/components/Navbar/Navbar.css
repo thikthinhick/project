@@ -1,0 +1,155 @@
+header .header-logo a{
+    text-decoration: none;
+}
+header .header-logo h1{
+    font-family: 'Bebas Neue';
+    font-size: 35px;
+    position: relative;
+    cursor: pointer;
+    color: black;
+}
+header .header-logo h1:after{
+  content:"";
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: #f51167;
+  position: absolute;
+  left: 70px;
+  top: 2px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px 0 40px;
+    font-size: 14px;    
+    height: 80px;
+    box-shadow: 0 0 3px rgb(0 0 0 / 30%);
+}
+.header-menu ul{
+    display: flex;
+    padding-top: 10px;
+}
+.header-menu ul li{
+    list-style: none;
+    margin: 0px 20px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    position: relative;
+}
+.header-menu ul li a{
+    text-decoration: none;
+}
+.header-menu ul li::after{
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-menu ul li:hover::after{
+    transform: scale(1);
+}
+.header-tools{
+    display: flex;
+    align-items: center;
+}
+.header-tools > div{
+    margin: 0px 15px;
+}
+.header-tools .icon-tools{
+    position: relative;
+}
+.header-tools .icon-tools i span{
+    font-size: 13px;
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    text-align: center;
+    color: black;
+    left: 100%;
+    top: -5px;
+}
+
+.header-tools .signup-login div div{
+display: flex;
+align-items: center;
+}
+.header-tools .signup-login div img{
+height: 30px;
+border-radius: 50%;
+}
+.header-tools .signup-login div span{
+font-weight: 500;
+color: black;
+}
+.header-tools div i{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+header .menu-icon{
+    display: none;
+    padding-top: 10px;
+}
+header .menu-icon i{
+    font-size: 20px;
+}
+.Account__item{
+    position: relative;
+}
+.Account__item i{
+    font-size: 20px;
+}
+@media screen and (max-width: 960px) {
+    header{
+        position: relative;
+    }
+    .header-tools div{
+        margin: 0px;
+    }
+    .header-menu{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 80px;
+        font-size: 18px;
+        font-weight: 300; 
+        background: #242222;
+        width: 100%;
+        display: none;
+    }
+    .header-menu ul{
+        flex-direction: column;
+        padding-top: 0px;
+    }
+    .header-menu ul li{
+        text-align: center;
+        padding: 15px 0px;
+        text-transform:uppercase;
+        margin: 0px;
+        color: #fff;
+    }
+    .header-menu ul li:hover{
+        background-color: #333333;
+    }
+    .header-menu ul li::after{
+        display: none;
+    }
+    header .menu-icon{
+        display: block;
+        cursor: pointer;
+        width: 20px;
+    }
+    .hide-item{
+        display: none;
+    }
+}

@@ -1,0 +1,72 @@
+.account{
+    width: 250px;
+    border-radius: 4px;
+    font-family: Roboto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0/30%);
+    position: absolute;
+    right: 0px;
+    top: 20px;
+    z-index: 2;
+    background-color: #fff;
+  }
+  .account__personalpage{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e4e6eb;
+    cursor: pointer;
+  }
+  .account__personalpage-img{
+    height: 50px;
+    width: 50px;
+  }
+  .account__personalpage-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .account__personalpage-title{
+    margin-left: 10px;
+    
+  }
+  .account__personalpage-title a div{
+    color: gray;
+    font-size: 15px;
+    margin: 5px 0;
+  }
+  .account__personalpage-title div:first-child{
+    font-weight: 500;
+    color: black;
+    font-size: 16px;
+  }
+  
+  .account__menu{
+    padding: 0px;
+    list-style: none;
+  }
+  .account__menu li{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    cursor: pointer;  
+  }
+  .account__menu-icon{
+    height: 40px;
+    width: 40px;
+    background-color: #e4e6eb;
+    border-radius: 50%;
+    position: relative
+  }
+  .account__menu-icon i{
+    font-size: 20px;
+    position:absolute;
+    top: 10px;
+    left: 12px;
+  }
+  .account__menu-title{
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 10px;
+  }

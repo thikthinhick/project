@@ -1,0 +1,151 @@
+
+.chat{
+    position:fixed;
+    right: 100px;
+    bottom: 0px;
+    z-index: 3;
+}
+.chat__wrapper{
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    border-top: 0px;
+    box-shadow: 0 0 4px rgb(0 0 0/30%);
+}
+.chat__wrapper .title{
+    position: relative;
+}
+.chat__wrapper .chat__close{
+    position: absolute;
+    top: 5px;
+    font-size: 20px;
+    color: red;
+    right: 10px;
+    cursor: pointer;
+}
+.chat__wrapper .title__text{
+    background: rgb(0 0 0/80%);
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    line-height: 60px;
+}
+.chat__wrapper .form{
+    margin-top: 10px;
+    padding: 10px 15px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.chat__wrapper .form .inbox{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin: 10px 0;
+    padding: 5px 0;
+} 
+.chat__wrapper .form .user-inbox{
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.chat__wrapper .form .inbox .icon{
+    height: 30px;
+    width: 30px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+.chat__wrapper .form .inbox .msg-header{
+    max-width: 70%;
+    margin-left: 10px;
+}
+
+.chat__wrapper .form .inbox .msg-header p{
+    color: black;
+    background-color:#e4e6eb;
+    border-radius: 15px 15px 15px 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin: 0px;
+}
+.chat__wrapper .form .user-inbox .msg-header p{
+    color: #fff;
+    background-color: rgb(0 0 0/80%);
+    bottom: 0px;
+    border-radius: 15px 15px 0px 15px;
+
+}
+.chat__wrapper .typing-field{
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background-color: #efefef;
+    border-top: 1px solid #d9d9d9;
+    border-radius: 0 0 5px 5px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.chat__wrapper .typing-field .input-data{
+    height: 40px;
+    width:280px;
+    position: relative
+}
+.chat__wrapper .typing-field .input-data input{
+    height: 100%;
+    width: 100%;
+    padding: 0 80px 0 15px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 15px;
+    background: #fff;
+    outline: none;
+    transition: all 0.3 ease;
+}
+.typing-field .input-data input:focus{
+    border-color: none;
+}
+.chat__wrapper .typing-field .input-data button{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 65px;
+    background: rgb(0 0 0/80%);
+    color: #fff;
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+    border-radius: 3px;
+    border: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+.chat__wrapper .typing-field .input-data input:valid ~ button{
+    opacity: 1;
+    pointer-events: auto;
+}
+.typing-field .input-data button:hover{
+    background-color:black;
+}
+
+
+
+.typing{
+    height: 25px;
+    width: 40px;
+    background-color: #eaeaea;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-left: 10px;
+  }
+  .typing img{
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 3px;
+  }

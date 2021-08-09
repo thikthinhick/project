@@ -1,0 +1,165 @@
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 500;
+}
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+.Personal{
+    margin-top: 10px;
+}
+.Personal__main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 150px;
+  margin: 10px 0;
+}
+.Personal__main-left {
+   width: 33%;
+   border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 0.24rem;
+   box-shadow: 0 0 3px rgb(0 0 0/20%)
+}
+.Personal__main-left .profile{
+    margin-top: 10px;
+}
+.Personal__main-left .profile .button__profile{
+    display: flex;
+}
+.Personal__main-left .profile .button__profile button{
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid black;
+    color: black;
+    margin: 0px 5px;
+    cursor: pointer;
+    transition: all linear 0.4s;
+}
+.Personal__main-left .profile .button__profile button:hover{
+    background-color: black;
+    color: #fff;
+}
+.Personal__main-left .profile div img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+.profile__image{
+    position: relative;
+}
+.profile__image span{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    top: 155px;
+    left: 155px;
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+    display: flex;
+}
+.profile__image span i{
+    margin: auto;
+}
+.profile .thongtin h2, .profile .thongtin div{
+    text-align: center;
+    margin-top: 10px;
+
+}
+.profile .thongtin .danhgia i{
+    color: #ffa41c;
+    font-size: 20px;
+}
+.Personal__main-right{
+  width: 63%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 0.24rem;
+   padding: 10px;
+   box-shadow: 0 0 3px rgb(0 0 0/20%);
+}
+.Personal__main-right .card__row{
+    display:flex;
+    align-items: center;
+    font-size: 14px;
+}
+.Personal__main-right .card__row .col-sm-3{
+    width: 25%;
+}
+.Personal__main-right .card__row .col-sm-3 h4{
+    margin: 25px 0;
+}
+.Personal__main-right .card__row .text-secondary{
+    color: #666;
+}
+.PersonalPage__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.PersonalPage__item div:first-child{
+    display: flex;
+    align-items:center;
+}
+.PersonalPage__item-img {
+  height: 80px;
+  width: 120px;
+}
+.PersonalPage__item div:last-child span{
+    margin: 0 20px;
+    cursor: pointer;
+}
+.PersonalPage__item-img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 5px rgb(0 0 0/30%);
+}
+.PersonalPage__item-content {
+  margin-left: 30px;
+ 
+}
+.PersonalPage__item-content div:first-child {
+  font-size: 20px;
+  color: red;
+}
+.PersonalPage__item-content div:last-child {
+  font-size: 14px;
+  color: #666;
+}
+.Personal__main .list-group li{
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #d1d1d1;
+
+}
+.Personal__main .list-group li h3{
+    margin: 0px;
+}
+.Personal__main .list-group{
+    border: 1px solid rgba(0, 0, 0, 0.125);
+   border-radius: 0.24rem;
+   box-shadow: 0 0 3px rgb(0 0 0/20%);
+   padding: 10px;
+   width: 100%;
+}
+.Personal__main .list-group li:first-child{
+    font-size: 20px;
+}
+.Personal .profile{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  align-items: center;
+}
+hr{
+    color: #666;
+}
+

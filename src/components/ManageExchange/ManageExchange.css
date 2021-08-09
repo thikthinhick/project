@@ -1,0 +1,182 @@
+.Exchange{
+    margin: 30px 140px;
+}
+.Exchange h2{
+    text-align: center;
+}
+.exchange img{
+    height: 50px;
+}
+.Exchange__main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    border: 1px solid #d1d1d1;
+    padding: 0 10px;
+}
+.Exchange__main-status{
+    font-size: 14px;
+    padding: 2px 5px;
+    margin-bottom: 5px;  
+    width: fit-content;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgb(0 0 0/20%);
+}
+.Exchange .button__image-exchange {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.theme-green{
+    border-left: 10px solid #00B2EE;
+}
+.theme-yellow{
+    border-left: 10px solid #FF6A6A;
+}
+.Exchange .button__image-exchange button{
+    float: none;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    color: black;
+    background-color: transparent;
+    font-size: 16px;
+    transition: all linear 0.3s;
+}
+.Exchange button:hover{
+    background-color: black;
+    color: #fff;
+}
+.Exchange__main-status i.wait{
+    color:#ffa300;
+}
+.Exchange__main-status i.error{
+    color: red;
+}
+.Exchange__main-status i.complete{
+    color: green;
+}
+.Exchange__main-header img{
+    height: 100px;
+}
+.Exchange__main-header .Me, .Exchange__main-header .You{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.Exchange__main-header .You .Name, .Exchange__main-header .Me .Name{
+    font-size: 14px;
+    margin-top: 2px;
+}
+.Exchange__main-header .Vote{
+    font-size: 18px;
+    color: #FD4;
+}
+.exchange__you img, .exchange__me img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.Exchange__main-header__list{
+    position: relative;
+    width: 300px;
+}
+.Exchange__main-header__list ul{
+    position: absolute;
+    width: 100%;
+    top: -30px;
+    height: 70px;
+    overflow: hidden;
+    padding: 0 2px;
+}
+.Exchange__main-header__list li{
+    list-style: none;
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    padding: 2px 0px;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #eaeaea;
+    margin: 3px;
+  }
+  .Exchange__main-header__list li:hover{
+    background-color: lightgray;
+  }
+  .Exchange__main-header__list .product-img{
+    flex:1;
+  
+  }
+  .Exchange__main-header__list .product-img .border-img{
+    height: 60px;
+    width: 80px;
+    padding: 5px;
+  }
+  .Exchange__main-header__list .product-img img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .Exchange__main-header__list .cart-content{
+    flex:2;
+    margin-top: 5px;
+    padding-right: 5px;
+    text-align: left;
+    font-size: 13px;
+  }
+  .Exchange__main-header__list .product-price{
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 5px;
+    color: #666;
+  }
+
+  .Exchange  div.stars {
+    width: 195px;
+    display: inline-block;
+    height: 80px;
+    border: 1px solid #d1d1d1;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgb(0 0 0/20%);
+    top: 50vh;
+    position: fixed;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+
+  .Exchange input.star {
+    display: none;
+  }
+
+  .Exchange label.star {
+    float: right;
+    padding: 6px;
+    font-size: 28px;
+    color: #444;
+    transition: all .2s;
+  }
+
+  .Exchange input.star:checked~label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+  }
+  label.star:hover {
+    transform: rotate(-10deg) scale(1.2);
+  }
+
+  .Exchange label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+  }
+  .Exchange  div.stars div {
+      width: 100%;
+      justify-content: center;
+  }
+  .Exchange div.stars div button{
+      float: none;
+      margin-left: 66px;
+  }

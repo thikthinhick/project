@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600&display=swap');
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto"
+}
+.Detail{
+    display: flex;
+    margin: 30px 80px;
+}
+.Detail__left{
+    flex: 2;
+}
+.Detail__left .Detail__left-slider{
+        width: 60vw;
+        height: calc(100vw * 1/3)
+}
+.Detail__left-slider img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.Detail__left .product-name{
+    margin: 20px 0px;
+}
+.Detail__left .price-cart{
+    display: flex;
+    justify-content: space-between;
+}
+.price-cart .price{
+    font-size: 30px;
+    color: red;
+}
+.price-cart div:last-child{
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;  
+  padding: 5px 10px;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  margin: 5px 5px 5px 0;
+}
+.Detail__left .content{
+    font-size: 16px;
+    margin-top: 20px;
+}
+.Detail__right{
+    flex: 1;
+    padding-left: 40px;
+}
+.Detail__right-main .user-sell .header-user{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+.Detail__right-main .user-sell .header-user .img-user{
+    display: flex;
+}
+.Detail__right-main .user-sell .header-user .img-user .state{
+    position: relative;
+}
+.Detail__right-main .user-sell .header-user .img-user .state::before{
+    content: "";
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    background-color: green;
+    border-radius: 7px;
+    left: -22px;
+    border: 1px solid #fff;
+    top: 12px;
+}
+.Detail__right-main .img-user .name-and-state{
+    margin-left: 10px;
+}
+.Detail__right-main  .name-and-state span{
+    font-weight: 600;
+}
+.Detail__right-main  .name-and-state .state{
+    font-size: 14px;
+}
+.Detail__right-main .header-user .personal-page{
+  border: none;
+  font-size: 16px;
+  margin-left: 80px;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0px;
+}
+.Detail__right-main .user-sell .footer-user{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid lightgray;
+    padding: 5px 20px;
+}
+.Detail__right-main .footer-user .assess ul{
+    display: flex;
+}
+.Detail__right-main .footer-user .title,.footer-user .data{
+    text-align: center;
+}
+.Detail__right-main .footer-user .gachngang{
+    height: 20px;
+    width: 1px;
+    margin-top: 10px;
+    background-color: lightgray;
+}
+.Detail__right-main{
+    box-shadow: 0 0 3px rgb(0 0 0/20%);
+    padding: 10px;
+}
+.Detail__right .chat-user{
+  border: none;
+  font-size: 15px;  
+  padding: 5px 10px;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+  margin: 10px 0;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Detail__right .chat-user i{
+  font-size: 20px
+}
+.Detail__right-main .footer-user .assess ul li{
+    list-style: none;
+    color: yellow;
+}
+.Detail__right-main .share-app{
+    align-items: center;
+    display: flex;
+    margin-top: 20px;
+  }
+.Detail__right-main .share-app ul{
+    display: flex;
+    list-style: none;
+    margin: auto;
+  }
+.Detail__right-main .share-app ul li{
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgb(187, 187, 187);
+    display: flex;
+    border-radius: 20px;
+    margin: 0px 10px;
+    cursor: pointer;
+    transition: all 0.4s linear;
+  }
+  .Detail__right-main .share-app ul li:hover{
+      background-color: #355c7d;
+  }
+  .Detail__right-main  .share-app ul li i{
+    margin: auto;
+  }
+  .Detail__right .quangcao img{
+      width: 100%;
+      margin-top: 40px;
+  }
+ .Detail .location, .tinhtrang{
+      display:flex;
+      margin: 10px 0;
+      align-items: center;
+  }
+ .Detail .location i, .tinhtrang i{
+      margin-right: 10px;
+  }
+ .Detail .reviews{
+      width: 50vw;
+      margin-top: 40px
+  }
+
+.Detail__left-slider{
+    width: 60vw;
+    height: calc(100vw * 1/3);
+     position: relative;
+   margin: auto;
+ }
+.Detail__left-slider .prev, .Detail__left-slider .next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: auto;
+   padding: 16px;
+   margin-top: -22px;
+   color: white;
+   font-weight: bold;
+   font-size: 18px;
+   transition: 0.6s ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+   color: rgba(0,0,0,0.8);
+ }
+ .Detail__left-slider .mySlides{
+   height: 100%;
+   display: none;
+ }
+ .Detail__left-slider .active{
+     display: block;
+ }
+ .Detail__left-slider.mySlides img{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+ }
+
+ .Detail__left-slider .next {
+   right: 0;
+   border-radius: 3px 0 0 3px;
+ }
+ 
+
+ .Detail__left-slider .prev:hover, .next:hover {
+   background-color: rgba(0,0,0,0.8);
+   color: #fff;
+ }
+ 
+
+ .text {
+   color: #f2f2f2;
+   font-size: 15px;
+   padding: 8px 12px;
+   position: absolute;
+   bottom: 8px;
+   width: 100%;
+   text-align: center;
+ }
+ 
+ .numbertext {
+   font-size: 16px;
+   padding: 8px 12px;
+   position: absolute;
+   color: #fff;
+   top: 0;
+   background-color: rgb(0 0 0/80%)
+ }
+ .dot {
+   cursor: pointer;
+   height: 15px;
+   width: 15px;
+   margin: 0 2px;
+   background-color: #bbb;
+   border-radius: 50%;
+   display: inline-block;
+   transition: background-color 0.6s ease;
+ }
+ 
+ .active, .dot:hover {
+   background-color: #717171;
+ }
+ .fade {
+   animation-name: fade;
+   animation-duration: 1.5s;
+   animation-timing-function: linear-gradient;
+ }
+ @keyframes fade {
+   from {opacity: .4} 
+   to {opacity: 1}
+ }
+ 

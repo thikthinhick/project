@@ -1,0 +1,121 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.Post {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 20px -16px;
+}
+.Post.main{
+  padding:10px;
+}
+.Post .col-25 {
+  -ms-flex: 25%;
+  flex: 25%;
+}
+
+.Post .col-50 {
+  -ms-flex: 50%;
+  flex: 50%;
+}
+
+.Post .col-75 {
+  -ms-flex: 75%;
+  flex: 75%;
+}
+
+.Post .col-25,
+.Post .col-50,
+.Post .col-75 {
+  padding: 0 16px;
+}
+
+.Post__container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+.Post input[type=text],
+.Post select {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.Post textarea {
+  width: 100%;
+  height: 231px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.Post label {
+  margin-bottom: 10px;
+  display: block;
+}
+.Post .btn {
+  background-color: black;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.Post .btn:hover {
+  background-color: #45a049;
+}
+.drap-area .img__list{
+  display: flex;
+  flex-direction: column;
+}
+.Post .img__list{
+  list-style: none;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 50px;
+}
+.Post .img__list li{
+  margin-right: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+.Post .img__list li span{
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  height: 16px;
+  width: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgb(0 0 0/20%);
+  font-size: 11px;
+  cursor:pointer;
+}
+.img__list-post{
+  height: 40px;
+  width: 60px;
+  
+}
+.img__list-post img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
