@@ -9,7 +9,8 @@ export class DataProvider extends Component {
         cart: [],
         user: null,
         chat: false,
-        receiver: null
+        receiver: null,
+        showEdit: false
     }
     componentDidMount() {
         if (getToken()) {
@@ -31,6 +32,9 @@ export class DataProvider extends Component {
             }
         )
     }
+    setShowEdit = () =>{
+        this.setState({showEdit: !this.state.showEdit})
+    }
     addCart = (product) => {
         const check = this.state.cart.every(item => {
             return item.idsan_pham !== product.idsan_pham;
@@ -47,11 +51,15 @@ export class DataProvider extends Component {
         else
             alert('Sản phẩm đã có sẵn trong giỏ hàng hoặc đây là sản phẩm của bạn')
     }
+    
     setCart = (a) => {
         this.setState({cart: a})
     }
     updateProduct = (products) => {
         this.setState({ products: products })
+    }
+    seemoreProduct = (products) => {
+        this.setState({products: [...this.state.products, ...products]})
     }
     removeCart = (id) => {
         const { cart } = this.state;
@@ -70,10 +78,10 @@ export class DataProvider extends Component {
         this.setState({ chat: !this.state.chat, receiver: idreceive })
     }
     render() {
-        const { products, cart, user, chat, receiver } = this.state;
-        const { addCart, removeCart, adduser, showChat, updateProduct,setCart } = this;
+        const { products, cart, user, chat, receiver, showEdit} = this.state;
+        const { addCart, removeCart, adduser, showChat, updateProduct,setCart,seemoreProduct,setShowEdit } = this;
         return (
-            <Datacontext.Provider value={{ products, cart, addCart, removeCart, adduser, user, chat, showChat, receiver, updateProduct,setCart }}>
+            <Datacontext.Provider value={{ products, cart, addCart, removeCart, adduser, user, chat, showChat, receiver, updateProduct,setCart,seemoreProduct , showEdit, setShowEdit}}>
                 {this.props.children}
             </Datacontext.Provider>
         )

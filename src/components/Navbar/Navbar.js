@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import Cart from './Cart/cart'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Notifi from './notification/Notifi'
 import { MenuList } from './Navbardata'
 import { Datacontext } from '../../context/contextGlobal';
@@ -11,7 +11,7 @@ import { getToken } from '../../Utils/Common'
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { clicked: true, clickCart: false, login: true, clickNotifi: false, clickAccount: false, user: null, soluong: 0 }
+        this.state = { clicked: true, clickCart: false, login: true, clickNotifi: false, clickAccount: false, clickSearch: false, user: null, soluong: 0, search: ""}
         this.handClick = this.handClick.bind(this)
         this.showCart = this.showCart.bind(this)
         this.showNotifi = this.showNotifi.bind(this)
@@ -25,37 +25,51 @@ class Navbar extends React.Component {
                 console.log(err)
             }
         )
-        axios.post('http://localhost:7000/sothongbao', {iduser: getToken()}).then(res => {
-            this.setState({soluong: res.data[0].soluong})
+        axios.post('http://localhost:7000/sothongbao', { iduser: getToken() }).then(res => {
+            this.setState({ soluong: res.data[0].soluong })
         }).catch(err => console.log(err))
         this.timerID = setInterval(
             () => this.updatethongbao(),
-            10000
+            5000
         );
     }
     componentWillUnmount() {
         clearInterval(this.timerID);
     }
-
+    handleEnter = (e) => {
+        if(e.keyCode === 13){
+            var url = 'http://localhost:3000/search/' + "?value=" + e.target.value;window.location = url;
+        }
+       
+    }
+    handlechangetext = (e) =>{
+        this.setState({search: e.target.value})
+    }
     updatethongbao() {
-        axios.post('http://localhost:7000/sothongbao', {iduser: getToken()}).then(res => {
-            this.setState({soluong: res.data[0].soluong})
+        axios.post('http://localhost:7000/sothongbao', { iduser: getToken() }).then(res => {
+            this.setState({ soluong: res.data[0].soluong })
         }).catch(err => console.log(err))
     }
     handClick() {
         this.setState({ clicked: !this.state.clicked })
     }
+    handleSearch = () => {
+        this.setState({ clickSearch: !this.state.clickSearch })
+    }
     showCart() {
         this.setState({ clickCart: !this.state.clickCart })
-        if(!this.state.clickCart) this.setState({clickAccount: false, clickNotifi: false})
+        if (!this.state.clickCart) this.setState({ clickAccount: false, clickNotifi: false })
     }
     showNotifi() {
-        this.setState({ clickNotifi: !this.state.clickNotifi })
-        if(!this.state.clickNotifi) this.setState({clickCart: false, clickAccount: false})
+        this.setState({ clickNotifi: !this.state.clickNotifi, soluong: 0 })
+        axios.post('http://localhost:7000/updatethongbao', { id: getToken() }).then(res => {
+
+        }).catch(err => console.log(err))
+        if (!this.state.clickNotifi) this.setState({ clickCart: false, clickAccount: false })
     }
     showAccount = () => {
         this.setState({ clickAccount: !this.state.clickAccount })
-        if(!this.state.clickAccount) this.setState({clickNotifi: false, clickCart: false})
+        if (!this.state.clickAccount) this.setState({ clickNotifi: false, clickCart: false })
     }
     render() {
         return (
@@ -64,7 +78,7 @@ class Navbar extends React.Component {
                     <i className={(this.state.clicked === true) ? "fas fa-bars" : "fas fa-times"} onClick={() => this.handClick()}></i>
                 </div>
                 <div className="header-logo">
-                    <Link to="/home"><h1>Shopping</h1></Link>
+                    <Link to="/"><h1>Shopping</h1></Link>
                 </div>
                 <div className="header-menu">
                     <ul>
@@ -88,9 +102,17 @@ class Navbar extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="header-search hide-item">
+                    <div className="header-search hide-item" style={{position: 'relative'}}>
                         <div>
-                            <i className="fas fa-search"></i>
+                            <i className="fas fa-search" onClick={() => this.handleSearch()}></i>
+                            {this.state.clickSearch ? <span style={{position: "absolute", top: "14px", right: "-30px"}}><input type="text" id="search-bar" placeholder="Tìm kiếm sản phẩm" onKeyUp={(e) => this.handleEnter(e)} onChange={(e) => this.handlechangetext(e)}></input>
+                            <div className="rectangle"></div>
+                                {/* <select name="cars" id="select-search">
+                                    <option value="volvo">Theo tên gọi</option>
+                                    <option value="saab">Theo thể loại</option></select> */}
+                                    </span> 
+                                : <></>}
+
                         </div>
                     </div>
                     {(this.state.user) ? <><div className="header-bag icon-tools hide-item">
@@ -98,12 +120,12 @@ class Navbar extends React.Component {
                         {(this.state.clickCart) ? <Cart /> : <></>}
                     </div>
                         <div className="bell-notifi icon-tools hide-item">
-                            <i className="far fa-bell" onClick={() => this.showNotifi()}><span>{this.state.soluong}</span></i>
+                            <i className="far fa-bell" onClick={() => this.showNotifi()}>{this.state.soluong > 0 ? <span>{this.state.soluong}</span> : <></>}</i>
                             {(this.state.clickNotifi) ? <Notifi /> : <></>}
                         </div>
                         <div className="hide-item Account__item">
                             <i class="fas fa-caret-down" onClick={() => this.showAccount()}></i>
-                            {(this.state.clickAccount) ? <Account value={this.state.user}/> : <></>}
+                            {(this.state.clickAccount) ? <Account value={this.state.user} /> : <></>}
                         </div></> : <></>}
                 </div>
             </header>

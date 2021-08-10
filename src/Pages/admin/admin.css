@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap');
+
+:root {
+    --main-color: #027581;
+    --color-dark: #1D2231;
+    --text-grey: #8390A2;
+}
+
+
+#sidebar-toggle {
+    display: none;
+}
+
+.Admin .sidebar {
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: rgba(0,0,0,80%);
+    color: #fff;
+    overflow-y: auto;
+    transition: width 500ms;
+}
+
+.Admin .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 1rem;
+}
+
+.Admin .sidebar-menu {
+    padding: 1rem;
+}
+
+.Admin .sidebar li {
+    margin-bottom: 1.5rem;
+    list-style: none;
+}
+
+.Admin .sidebar a {
+    color: #fff;
+    font-size: .8rem;
+}
+
+.Admin .sidebar a span:last-child {
+    padding-left: .6rem;
+}
+
+.Admin #sidebar-toggle:checked ~ .sidebar {
+    width: 60px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+#sidebar-toggle:checked ~ .sidebar li span:last-child {
+    display: none;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header,
+#sidebar-toggle:checked ~ .sidebar li {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar-toggle:checked ~ .main-content {
+    margin-left: 60px;
+}
+
+#sidebar-toggle:checked ~ .main-content header {
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+.Admin .main-content {
+    position: relative;
+    margin-left: 240px;
+    transition: margin-left 500ms;
+}
+
+.Admin header {
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: calc(100% - 240px);
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    transition: left 500ms;
+}
+
+.Admin .search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.Admin .search-wrapper input {
+    border: 0;
+    outline: 0;
+    padding: 1rem;
+    height: 38px;
+}
+
+.Admin .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.Admin .social-icons span,
+.Admin .social-icons div {
+    margin-left: 1.2rem;
+}
+
+.Admin .social-icons div {
+    height: 38px;
+    width: 38px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-image: url(img/1.jpg); */
+    border-radius: 50%;
+}
+
+.Admin main {
+    margin-top: 60px;
+    background: #f1f5f9;
+    min-height: 90vh;
+    padding: 1rem 3rem;
+}
+
+.Admin .dash-title {
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+.Admin .dash-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+}
+
+.Admin .card-single {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+
+
+.Admin .chart{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between
+}
+.Admin .chart div{
+   background-color: red;
+   padding: 15px;
+   border-radius: 5px;
+   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+   background-color: #fff;
+}
+
+
+.Admin .Admin__table{
+    margin-top: 30px;
+}
+.Admin .Admin__table .table-wrapper table{
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+.Admin .card-body {
+    padding: 1.3rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.Admin .card-body i {
+    font-size: 2rem;
+    color: #777;
+    padding-right: 2rem;
+}
+
+.Admin .card-body h5 {
+    color: var(--text-grey);
+    font-size: 1rem;
+}
+
+.Admin .card-body h4 {
+    color: var(--color-dark);
+    font-size: 1.1rem;
+    margin-top: .2rem;
+}
+
+.Admin .card-footer {
+    padding: .2rem 1rem;
+    background: #f9fafc;
+}
+
+.Admin .card-footer a {
+    color: var(--main-color);
+}
+
+.Admin .recent {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+
+.Admin .activity-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.Admin th, td {
+    font-size: .9rem;
+    padding: 1rem 1rem;
+    color: var(--color-dark);
+}
+
+.Admin td {
+    font-size: .8rem;
+}
+
+.Admin tbody tr:nth-child(even) {
+    background: #f9fafc;
+}

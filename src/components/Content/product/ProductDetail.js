@@ -5,19 +5,28 @@ import { getToken } from '../../../Utils/Common';
 import './ProductDetail.css'
 import IMG from '../../../images/maxresdefault.jpg'
 import { Datacontext } from '../../../context/contextGlobal';
+import ConvertPrice from '../../ConvertPrice';
 export default class ProductDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       number: 0,
       images: [],
-      user: {}
+      user: {},
+      product: {}
     }
   }
   static contextType = Datacontext;
   componentDidMount() {
     axios.post('http://localhost:7000/product/getImage', { idsan_pham: this.props.params.id}).then(response => {
       this.setState({images: response.data.images, user: response.data.user})
+    }).catch(
+      err => {
+        console.log(err)
+      }
+    )
+    axios.post('http://localhost:7000/getEditproduct', { id: this.props.params.id}).then(response => {
+      this.setState({product: response.data[0]})
     }).catch(
       err => {
         console.log(err)
@@ -51,17 +60,14 @@ export default class ProductDetail extends Component {
               <a class="next" onClick={() => this.next(1)}><i class="fas fa-chevron-right"></i></a>
             </div>
             <div class="product-name">
-              <h2>THANH LÝ TIVI SONY BRAVIA 42ich</h2>
+              <h2>{this.state.product.namesan_pham}</h2>
             </div>
             <div class="price-cart">
-              <div class="price">4.000.000 Đ</div>
+              <div class="price">{ConvertPrice(parseInt(this.state.product.gia_ca), "VNĐ")}</div>
               <div><i class="fas fa-cart-plus"></i>&ensp;Thêm vào giỏ hàng</div>
             </div>
             <div class="content">
-              <p><span style={{ fontWeight: "600" }}>Miêu tả: </span>Nhà đổi tivi to hoen cần thanh lý tivi sony như ảnh
-                đang dùng tốt trước mua rất đắt, tivi nguyên bản
-                âm anh nghe rất to màn sáng đẹp bán lại cho ai có nhu cầu. Cần thì gọi điện trực tiếp
-                Cám ơn.</p>
+              <p><span style={{ fontWeight: "600" }}>Miêu tả: </span>{this.state.product.mo_ta_chi_tiet}</p>
             </div>
           </div>
           <div class="Detail__right">
@@ -137,7 +143,7 @@ export default class ProductDetail extends Component {
             </div>
             <div class="tinhtrang">
               <i class="fas fa-heartbeat"></i>
-              <p>Hàng cũ chưa sửa chữa(60%).</p>
+              <p>{this.state.product.tinh_trang_san_pham}</p>
             </div>
           </div>
         </div>

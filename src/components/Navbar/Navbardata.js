@@ -1,26 +1,26 @@
 export const MenuList = [
     {
-        title: 'Home',
+        title: 'Trang chủ',
         link: '/',
         class: 'menu-item'
     },
     {
-        title: 'Post',
+        title: 'Đăng bài',
         link: '/post',
         class: 'menu-item'
     },
     {
-        title: 'Manage',
+        title: 'Quản lí ',
         link: '/Exchange',
         class: 'menu-item'
     },
     {
-        title: 'Contact',
+        title: 'Liên hệ',
         link: '/personal',
         class: 'menu-item'
     },
     {
-        title: 'About',
+        title: 'Giới thiệu',
         link: '#',
         class: 'menu-item'
     }

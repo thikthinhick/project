@@ -1,20 +1,44 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import { getToken } from '../../../Utils/Common';
 import './ContentPersonal.css'
+import ConvertPrice from '../../ConvertPrice';
+import Edit from './Edit';
+import { Datacontext } from '../../../context/contextGlobal';
 export class ContentPersonal extends Component {
     constructor(props) {
         super(props);
-        this.state = ({user: {}})
+        this.state = ({ user: {}, products: [], editProduct: {} })
     }
-    componentDidMount(){
-        axios.post('http://localhost:7000/getuser', {id: this.props.id}).then(res => {
-            this.setState({user: res.data[0]})
+    static contextType = Datacontext
+    componentDidMount() {
+        axios.post('http://localhost:7000/getuser', { id: this.props.id }).then(res => {
+            this.setState({ user: res.data[0] })
+        })
+        axios.post('http://localhost:7000/getmyproducts', { iduser: getToken() }).then(res => {
+            this.setState({ products: res.data })
+        }).catch(err => console.log(err))
+    }
+    deleteproduct = (id) => {
+        axios.post('http://localhost:7000/deleteproduct', {id: id}).then(res => {
+            alert('xóa sản phẩm thành công')
+            window.location = document.location.href
+        })
+    }
+    Editproduct = (id) => {
+        axios.post('http://localhost:7000/getEditproduct', {id: id}).then(res => {
+            this.setState({editProduct: res.data[0]})
+            this.context.setShowEdit();
+            document.getElementById('Modal').style.display = 'block'
         })
     }
     render() {
 
         return (
             <div class="Personal">
+                <div style={{position: "relative",display:"flex",justifyContent: "center"}}>
+                    {this.context.showEdit ? <Edit product={this.state.editProduct}/>: <></>}
+                </div>
                 <div class="Personal__main">
                     <div class="Personal__main-left">
                         <div class="profile">
@@ -59,7 +83,7 @@ export class ContentPersonal extends Component {
                                     <h4 class="mb-0"><i class="fas fa-phone"></i> Số điện thoại</h4>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                {this.state.user.phone}
+                                    {this.state.user.phone}
                                 </div>
                             </div>
                             <hr />
@@ -94,17 +118,18 @@ export class ContentPersonal extends Component {
                 </div>
                 <div class="Personal__main">
                     <ul class="list-group">
-                        <li>Danh sách sản phẩm đã đăng bán - 10 sản phẩm</li>
-                        <li>
-                            <div class="PersonalPage__item" >
+                        <li>Danh sách sản phẩm của bạn</li>
+
+                        {this.state.products.map((value) =>
+                            <li> <div class="PersonalPage__item" >
                                 <div>
                                     <div class="PersonalPage__item-img">
-                                        <img src="https://vaithuhayho.com/wp-content/uploads/2021/03/hinh-anh-dep-41.jpg" />
+                                        <img src={value.link_anh}/>
 
                                     </div>
                                     <div class="PersonalPage__item-content">
-                                        <h3>Giày thể thao nữ adidas</h3>
-                                        <div>1.0999.999 Đ</div>
+                                        <h3>{value.namesan_pham}</h3>
+                                        <div>{ConvertPrice(parseInt(value.gia_ca), "VNĐ")}</div>
                                         <div>
                                             <i class="far fa-calendar-alt"></i>: 20/3/2021
                                         </div>
@@ -112,11 +137,13 @@ export class ContentPersonal extends Component {
                                 </div>
 
                                 <div>
-                                    <span><i class="far fa-edit"></i></span>
-                                    <span><i class="far fa-trash-alt"></i></span>
+                                    <span onClick ={() => this.Editproduct(value.idsan_pham)}><i class="far fa-edit"></i></span>
+                                    <span onClick = {() => this.deleteproduct(value.idsan_pham)}><i class="far fa-trash-alt"></i></span>
                                 </div>
                             </div>
-                        </li>
+                            </li>
+                        )}
+
                     </ul>
                 </div>
             </div>

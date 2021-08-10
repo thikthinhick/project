@@ -27,7 +27,7 @@ class Login extends Component {
                 else {
                     setUserSession(response.data.iduser)
                     this.context.adduser(getToken());
-                    this.props.history.push('/home')
+                    this.props.history.push('/')
                 }
                 this.setState({ loadding: false });
             }, 1000);

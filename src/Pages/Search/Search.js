@@ -1,41 +1,30 @@
+import axios from 'axios';
 import React, { Component } from 'react'
-import { Datacontext } from '../../../context/contextGlobal'
+import ConvertPrice from '../../components/ConvertPrice';
+import Navbar from '../../components/Navbar/Navbar';
+import { Datacontext } from '../../context/contextGlobal';
 import { Link } from 'react-router-dom';
-import Convert from '../../ConvertPrice'
-import './product.css'
-import axios from 'axios'
-export class product extends Component {
+export class Search extends Component {
     constructor(props) {
-        super(props);
-        this.state = ({ products: [] })
+        super(props)
+        this.state = ({products: []})
+       
     }
-    static contextType = Datacontext;
-    componentDidMount() {
-        axios.get('http://localhost:7000/getproduct').then(response => {
-            this.context.updateProduct(response.data);
-        }).catch(
-            err => {
-                console.log(err)
-            }
-        )
-    }
-    handleSeeMore = () => {
-        axios.post('http://localhost:7000/getproductseemore', { length: this.context.products.length }).then(response => {
-            this.context.seemoreProduct(response.data)
-            console.log(response.data)
+    static contextType = Datacontext
+    componentDidMount(){
+        var value = document.location.search.split('=')[1];
+        axios.post('http://localhost:7000/search/getproduct', {value: value}).then(res => {
+            this.setState({products: res.data})
         })
     }
     render() {
-        const { products } = this.context;
         return (
-            <div className="product">
-                <div className="product__title">
-                    <div></div>
-                    <h2>BLOG MỚI NHẤT</h2>
-                    <div></div>
-                </div>
+            <React.Fragment>
+                <Navbar />
+                <div className="product">
+                    
                 <ul className="product__list" >
-                    {products.map((value, index) =>
+                    {this.state.products.length > 0 ? this.state.products.map((value, index) =>
                         <li key={value.id}>
                             <div className="product__list-item"  >
                                 <div className="justfinish">New</div>
@@ -46,8 +35,8 @@ export class product extends Component {
                                     {value.namesan_pham}
                                 </div>
                                 <div className="price-addcart">
-                                    <span>{Convert(parseInt(value.gia_ca), "VNĐ")}</span>
-                                    <span onClick={() => this.context.addCart(value)}><i class="fal fa-shopping-cart"></i></span>
+                                    <span>{ConvertPrice(parseInt(value.gia_ca), "VNĐ")}</span>
+                                    <span onClick={() => this.context.addCart(value)}><i class="fas fa-shopping-cart"></i></span>
                                 </div>
                                 <div className="contact">
                                     <div className="name">
@@ -63,14 +52,12 @@ export class product extends Component {
                                 </div>
                             </div>
                         </li>
-                    )}
+                    ):<h1>Không tồn tại sản phẩm bạn tìm</h1>}
                 </ul>
-                <div onClick={() => this.handleSeeMore()} class="product__button-seemore">
-                    <h3>Xem thêm</h3>
-                </div>
             </div>
+            </React.Fragment>
         )
     }
 }
 
-export default product
+export default Search;

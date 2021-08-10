@@ -7,7 +7,7 @@ export const setUserSession = (token) => {
 export const removeUserSession = () => {
     sessionStorage.removeItem('token');
     setTimeout(() => {
-        window.location = 'http://localhost:3000/home'
-    }, 500)
+        window.location = 'http://localhost:3000'
+    }, 200)
     
 }
